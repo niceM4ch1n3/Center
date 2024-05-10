@@ -1,28 +1,30 @@
-import { GithubOutlined } from '@ant-design/icons';
-import { DefaultFooter } from '@ant-design/pro-components';
+import {GithubOutlined} from '@ant-design/icons';
+import {DefaultFooter} from '@ant-design/pro-components';
+
 const Footer: React.FC = () => {
-  const defaultMessage = '蚂蚁集团体验技术部出品';
+  const defaultMessage = 'Adonis作品';
   const currentYear = new Date().getFullYear();
   return (
     <DefaultFooter
       copyright={`${currentYear} ${defaultMessage}`}
       links={[
         {
-          key: 'Ant Design Pro',
-          title: 'Ant Design Pro',
-          href: 'https://pro.ant.design',
+          key: 'User Center',
+          title: '用户中心',
+          href: '#',
           blankTarget: true,
         },
         {
           key: 'github',
-          title: <GithubOutlined />,
-          href: 'https://github.com/ant-design/ant-design-pro',
+          // eslint-disable-next-line react/no-unescaped-entities
+          title: <><GithubOutlined/> Adonis' GitHub</>,
+          href: 'https://github.com/niceM4ch1n3',
           blankTarget: true,
         },
         {
-          key: 'Ant Design',
-          title: 'Ant Design',
-          href: 'https://ant.design',
+          key: 'Index',
+          title: '个人主页',
+          href: '#',
           blankTarget: true,
         },
       ]}
