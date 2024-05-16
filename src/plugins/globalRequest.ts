@@ -13,7 +13,8 @@ import * as process from "process";
  */
 const request = extend({
   credentials: 'include', // 默认请求是否带上cookie
-  prefix: process.env.NODE_ENV === 'production' ? 'http://backend.tailstail.top' : undefined,
+  // prefix: process.env.NODE_ENV === 'production' ? 'http://backend.tailstail.top' : undefined,
+  prefix: process.env.NODE_ENV === 'production' ? 'http://47.103.97.94' : undefined,
   // requestType: 'form',
 });
 

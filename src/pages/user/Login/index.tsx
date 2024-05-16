@@ -29,6 +29,7 @@ const LoginMessage: React.FC<{
 );
 const Login: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
+  // const [userLoginState] = useState<API.LoginResult>({});
   const [type, setType] = useState<string>('account');
   const {initialState, setInitialState} = useModel('@@initialState');
   const fetchUserInfo = async () => {
@@ -67,7 +68,7 @@ const Login: React.FC = () => {
       message.error(defaultLoginFailureMessage);
     }
   };
-  const {status, type: loginType} = userLoginState;
+  const {status, type: loginType} = userLoginState || {status: 'error', type: 'unknown'};
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -86,7 +87,7 @@ const Login: React.FC = () => {
             <Tabs.TabPane key="account" tab={'账号密码登录'}/>
           </Tabs>
 
-          {status === 'error' && loginType === 'account' && (
+          {status === 'error' && loginType === 'account' || loginType === 'unknown' && (
             <LoginMessage content={'错误的账号和密码'}/>
           )}
           {type === 'account' && (
@@ -131,7 +132,7 @@ const Login: React.FC = () => {
               marginBottom: 24,
             }}
           >
-            <Space split={<Divider type="vertical" />}>
+            <Space split={<Divider type="vertical"/>}>
               <ProFormCheckbox noStyle name="autoLogin">
                 自动登录
               </ProFormCheckbox>
